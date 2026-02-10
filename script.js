@@ -35,7 +35,7 @@ function generateCode() {
     if (perRow == 3) width = "0.30";
     if (perRow == 4) width = "0.22";
 
-    let code = "% Add in preamble\n\\usepackage{subcaption}\n\n";
+    let code = "% Add in preamble\n% \\usepackage{subcaption}\n\n";
     code += "\\begin{figure}[h]\n\\centering\n";
 
     for (let i = 1; i <= count; i++) {
