@@ -42,9 +42,13 @@ function generateCode() {
         const file = document.getElementById(`img${i}`).files[0];
         const cap = document.getElementById(`cap${i}`).value || "Image";
 
+        // Use the file name (without extension) as the label
+        let label = file ? file.name.split('.').slice(0, -1).join('.') : `fig:sub${i}`;
+
         code += `\\begin{subfigure}{${width}\\textwidth}\n`;
         code += `\\includegraphics[width=\\linewidth]{${file ? file.name : ""}}\n`;
         code += `\\caption{${cap}}\n`;
+        code += `\\label{${label}}\n`;
         code += `\\end{subfigure}\n`;
 
         if (i % perRow !== 0 && i != count) {
@@ -55,9 +59,15 @@ function generateCode() {
     }
 
     const mainCap = document.getElementById("mainCaption").value || "Main Caption";
-    code += `\\caption{${mainCap}}\n\\end{figure}`;
+    const mainLabel = "fig:main"; // optional, can keep as default
+
+    code += `\\caption{${mainCap}}\n`;
+    code += `\\label{${mainLabel}}\n`;
+    code += "\\end{figure}";
+
     document.getElementById("output").value = code;
 }
+
 
 
 function copyCode() {
