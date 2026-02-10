@@ -48,7 +48,7 @@ function generateCode() {
         code += `\\begin{subfigure}{${width}\\textwidth}\n`;
         code += `\\includegraphics[width=\\linewidth]{${file ? file.name : ""}}\n`;
         code += `\\caption{${cap}}\n`;
-        code += `\\label{${label}}\n`;
+        code += `\\label{fig:${label}}\n`;
         code += `\\end{subfigure}\n`;
 
         if (i % perRow !== 0 && i != count) {
